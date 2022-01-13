@@ -1,6 +1,6 @@
 # vim-config
 
-## Install LSPs
+## Install language server
 
 ```
 npm install -g svelte-language-server

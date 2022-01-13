@@ -21,6 +21,7 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'kdheepak/lazygit.nvim'
+Plug 'akinsho/toggleterm.nvim'
 call plug#end()
 
 
@@ -28,6 +29,10 @@ call plug#end()
 map <Space> <leader>
 " NvimTree
 nmap <space>e :NvimTreeToggle<CR>
+" Telescope open
+nmap <space>t :Telescope <CR>
+" Telescope find file
+nmap <space>ff :Telescope find_files<CR>
 " Switch Panes
 nmap <space>w <C-W>w
 "Prettier
@@ -61,19 +66,36 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Nvim-tree
-lua require'nvim-tree'.setup {}
 let g:nvim_tree#open_on_setup = 0
 let g:nvim_tree_quit_on_open = 1
 
 " LSP
 lua <<EOF
   local cmp = require'cmp'
-require("scrollbar").setup({
-    show = true,
-    handle = {
-        color = "#443",
-        }})
-
+  local actions = require("telescope.actions")
+  -- Telescope setup
+  require('telescope').setup{ 
+    defaults = { 
+      file_ignore_patterns = {"node_modules", ".git"}, 
+      mappings = {
+            i = {
+                ["<esc>"] = actions.close,
+            },
+        }
+    } 
+  }
+  --  scrollbar setup
+  require("scrollbar").setup({
+      show = true,
+      handle = {
+          color = "#443",
+      }
+    })
+  --  toggleterm setup
+  require("toggleterm").setup{  
+      open_mapping = [[<c-t>]]    
+  }
+  -- LSP setup
   cmp.setup({
     snippet = {
       expand = function(args)

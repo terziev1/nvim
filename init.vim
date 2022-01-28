@@ -39,6 +39,8 @@ nmap <space>w <C-W>w
 nmap  <silent> <space>gp :Neoformat prettier<CR>
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
+" Normal mode in terminal window
+tnoremap <Esc><Esc> <C-\><C-n>
 " Buffers
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
@@ -162,3 +164,4 @@ set timeoutlen=1000 ttimeoutlen=0     " Remove timeout when hitting escape
 set expandtab shiftwidth=2 tabstop=2  " Four spaces for tabs everywhere
 set number
 set termguicolors
+nnoremap <c-z> <nop>

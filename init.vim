@@ -69,6 +69,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
 " Nvim-tree
+lua require'nvim-tree'.setup {}
 let g:nvim_tree#open_on_setup = 0
 let g:nvim_tree_quit_on_open = 1
 

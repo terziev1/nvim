@@ -21,7 +21,6 @@ Plug 'hrsh7th/cmp-vsnip'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'kdheepak/lazygit.nvim'
-Plug 'akinsho/toggleterm.nvim'
 call plug#end()
 
 
@@ -39,8 +38,7 @@ nmap <space>w <C-W>w
 nmap  <silent> <space>gp :Neoformat prettier<CR>
 " setup mapping to call :LazyGit
 nnoremap <silent> <leader>gg :LazyGit<CR>
-" Normal mode in terminal window
-tnoremap <Esc><Esc> <C-\><C-n>
+
 " Buffers
 nnoremap  <silent>   <tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bnext<CR>
 nnoremap  <silent> <s-tab>  :if &modifiable && !&readonly && &modified <CR> :write<CR> :endif<CR>:bprevious<CR>
@@ -96,10 +94,6 @@ lua <<EOF
           color = "#443",
       }
     })
-  --  toggleterm setup
-  require("toggleterm").setup{  
-      open_mapping = [[<c-t>]]    
-  }
   -- LSP setup
   cmp.setup({
     snippet = {

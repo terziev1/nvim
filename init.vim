@@ -61,6 +61,9 @@ set t_Co=256
 set cursorline
 colorscheme onedark
 
+au ColorScheme * hi Normal ctermbg=none guibg=none
+au ColorScheme myspecialcolors hi Normal ctermbg=red guibg=red
+
 " Airline 
 let g:airline_theme='onedarkpro'
 let g:airline_powerline_fonts = 1

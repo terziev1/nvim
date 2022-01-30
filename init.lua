@@ -3,7 +3,7 @@ require('colors')
 require('telescope-config')
 require('coc-config')
 require('lualine').setup()
-
+require("bufferline").setup{}
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   context_commentstring = {
@@ -25,6 +25,7 @@ return require('packer').startup(function()
   use 'tpope/vim-commentary'
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'ThePrimeagen/git-worktree.nvim'
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}

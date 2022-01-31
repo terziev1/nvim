@@ -4,10 +4,12 @@ require('telescope-config')
 require('coc-config')
 require('lualine').setup()
 require("bufferline").setup{}
+-- require("kdheepak/lazygit.nvim")
 require'nvim-treesitter.configs'.setup {
   ensure_installed = "maintained",
   context_commentstring = {
     enable = true
+
   },
   highlight = {
     enable = true
@@ -26,6 +28,7 @@ return require('packer').startup(function()
   use 'JoosepAlviste/nvim-ts-context-commentstring'
   use 'ThePrimeagen/git-worktree.nvim'
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use 'kdheepak/lazygit.nvim'
   use {
     'nvim-lualine/lualine.nvim',
     requires = {'kyazdani42/nvim-web-devicons', opt = true}
